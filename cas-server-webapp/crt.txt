@@ -1,0 +1,7 @@
+# 生成key
+keytool -genkey -alias verisign -keyalg RSA -keystore f:Studio/keys/keystore
+# 导出证书
+keytool -export -file f:Studio/keys/verisign.crt -alias verisign -keystore f:Studio/keys/keystore
+# 导入证书到JDK（需要先删除cacerts）
+keytool -import -keystore "F:\Studio\Java\lib\security\cacerts" -file f:Studio/keys/verisign.crt -alias verisign
+keytool -import -keystore "F:\Studio\Java\jdk1.8.0_25\jre\lib\security\cacerts" -file f:Studio/keys/verisign.crt -alias verisign
